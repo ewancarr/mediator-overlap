@@ -1,0 +1,44 @@
+TITLE: 2-factor CFA for AVOID_L and WSAQ.
+DATA:
+FILE = "mplus.dat";
+VARIABLE:
+NAMES = trialarm cfq1_0 cfq2_0 cfq3_0 cfq4_0
+cfq5_0 cfq6_0 cfq7_0 cfq8_0 cfq9_0 cfq10_0 cfq11_0
+cfq1_52 cfq2_52 cfq3_52 cfq4_52 cfq5_52 cfq6_52
+cfq7_52 cfq8_52 cfq9_52 cfq10_52 cfq11_52 pf1_0
+pf2_0 pf3_0 pf4_0 pf5_0 pf6_0 pf7_0 pf8_0 pf9_0
+pf10_0 pf1_52 pf2_52 pf3_52 pf4_52 pf5_52 pf6_52
+pf7_52 pf8_52 pf9_52 pf10_52 wsaq1_0 wsaq1_52
+wsaq2_0 wsaq2_52 wsaq3_0 wsaq3_52 wsaq4_0 wsaq4_52
+wsaq5_0 wsaq5_52 siq1_0 siq1_12 siq3_0 siq3_12
+siq4_0 siq4_12 siq6_0 siq6_12 siq7_0 siq7_12
+siq8_0 siq8_12 siq9_0 siq9_12 siq10_0 siq10_12
+siq11_0 siq11_12 siq12_0 siq12_12 siq13_0 siq13_12
+siq14_0 siq14_12 siq15_0 siq15_12 siq16_0 siq16_12
+siq17_0 siq17_12 siq18_0 siq18_12 siq19_0 siq19_12
+siq20_0 siq20_12 siq21_0 siq21_12 siq22_0 siq22_12
+siq23_0 siq23_12 siq24_0 siq24_12 siq25_0 siq25_12
+siq26_0 siq26_12 siq27_0 siq27_12 siq28_0 siq28_12
+siq29_0 siq29_12 siq30_0 siq30_12 siq31_0 siq31_12
+siq32_0 siq32_12 siq33_0 siq33_12 siq34_0 siq34_12
+siq35_0 siq35_12 siq36_0 siq36_12 siq37_0 siq37_12
+siq38_0 siq38_12 siq39_0 siq39_12 siq40_0 siq40_12
+siq41_0 siq41_12 siq42_0 siq42_12 siq43_0 siq43_12
+siq2r_0 siq2r_12 siq5r_0 siq5r_12; MISSING=.;
+USEVAR = siq30_0 siq31_0 siq32_0 siq33_0 siq38_0 siq39_0
+siq40_0 siq42_0 wsaq1_0 wsaq2_0 wsaq3_0 wsaq4_0
+wsaq5_0;
+CATEGORICAL = ALL;
+ANALYSIS:
+DIFFTEST IS DIFFTEST.dat;
+MODEL:
+AVOID_L BY siq30_0 siq31_0 siq32_0 siq33_0 siq38_0 siq39_0 siq40_0 siq42_0;
+WSAQ BY wsaq1_0 wsaq2_0 wsaq3_0 wsaq4_0 wsaq5_0;
+AVOID_L WITH WSAQ;
+WSAQ BY SIQ39_0;
+WSAQ BY SIQ38_0;
+WSAQ BY SIQ42_0;
+AVOID_L BY WSAQ5_0@0;
+
+OUTPUT:
+MODINDICES(ALL 1);
