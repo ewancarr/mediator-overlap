@@ -17,7 +17,6 @@ input_files <- list.files(here("analysis", "longitudinal_invariance"),
                           recursive = TRUE,
                           pattern = ".*\\.inp",
                           full.names = TRUE) %>%
-    discard(grepl("x_good_copy", .)) %>%
     map(fit_model)
 
 # Gather output ===============================================================
