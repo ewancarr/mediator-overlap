@@ -105,7 +105,3 @@ for these models were written by hand and can be found in the
 1. Fit each model in Mplus;
 2. Import the outputs using `readModels`;
 3. Produce table summarising fit statistics and `DIFFTEST` results.
-
-## Software
-
-**TODO:** explain R environment.
